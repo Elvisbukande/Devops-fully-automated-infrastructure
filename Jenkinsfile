@@ -10,7 +10,7 @@ pipeline {
         stage('Git checkout') {
             steps {
                 echo 'Cloning project codebase...'
-                git branch: 'main', url: 'https://github.com/Ben-Benard23/Terraform-CICD-Deployment.git'
+                git branch: 'main', url: 'https://github.com/Elvisbukande/Devops-fully-automated-infrastructure.git'
                 sh 'ls'
             }
         }
@@ -94,7 +94,7 @@ pipeline {
      post { 
         always { 
             echo 'I will always say Hello again!'
-            slackSend channel: '#team-devops', color: COLOR_MAP[currentBuild.currentResult], message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+            slackSend channel: '#jenkins-cicd-infrastructure-automation', color: COLOR_MAP[currentBuild.currentResult], message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
     }
     
